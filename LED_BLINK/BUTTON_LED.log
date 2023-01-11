@@ -1,0 +1,6 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP18F45K50 -DL -O11111114 -fo48 -N"C:\Users\agart\OneDrive\Belgeler\GitHub\mikroC-PIC-TRUDYO\LED_BLINK\BUTTON_LED.mcppi" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -SP"C:\Users\agart\OneDrive\Belgeler\GitHub\mikroC-PIC-TRUDYO\LED_BLINK\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" "BUTTON_LED.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl"	 
+hint: 0	1139	Available RAM: 2027 [bytes], Available ROM: 32768 [bytes]	 
+error: 0	340	File 'BUTTON_LED.c' not found	 
+diagnostics: 0	127	All files Compiled in 0 ms	 
+error: 0	357	main function is not defined	main function is not defined
+error: 0	102	Finished (with errors): 11 Oca 2023, 14:02:01	BUTTON_LED.mcppi
