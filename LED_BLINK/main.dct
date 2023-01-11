@@ -957,6 +957,10 @@ late1_bit
 late2
 late2_bit
 led
+led_an
+ledb
+ledg
+ledr
 lfiofs
 lfiofs_bit
 longint2double
