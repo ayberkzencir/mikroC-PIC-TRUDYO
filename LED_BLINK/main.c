@@ -1,6 +1,6 @@
  //bu led bootloader modu aktif olduðunda yanar bootloader modu kapalý olduðunda ise söner
 
- sbit LED at LATA4_bit; // burada  LEDleri tanýmlamasýný yaptýk
+ sbit LED at LATA4_bit; // burada  LEDleri tanýmlamasýný yaptýk   lat A4 portunu belirledik demekki Bizim LED imiz A4 portundaymýs
 
 void main() 
 {
