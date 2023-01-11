@@ -6,13 +6,13 @@
  sbit LEDG at LATE1_bit;
  sbit LEDB at LATE2_bit;
  
- 
+void wait(void);
 void LED_An();
 
 void main() 
 {
-    TRISA  = 0b00000000;   //Bu kýsým denetleyici üzerindeki LED leri çalýþtýrmak içindir
-    TRISE  = 0x00; // buradada hepsini çýkýþ veridk
+    TRISA = 0b00000000;   //Bu kýsým denetleyici üzerindeki LED leri çalýþtýrmak içindir
+    TRISE  =0x00; // buradada hepsini çýkýþ veridk
     
 
     LATA = 0x00;
@@ -21,8 +21,8 @@ void main()
 
     while(1)
     {
-       LED =! LED; delay_ms(500);
-       LED_An();
+       LED =! LED; wait();
+         LED_An();
        
      
   }
@@ -30,7 +30,12 @@ void main()
   
   void LED_An(void)
   {
-    LEDR =! LEDR; delay_ms(500);
-    LEDG =! LEDG ;delay_ms(500);
-    LEDB =! LEDB ;delay_ms(500);
+    LEDR =! LEDR; wait();
+    LEDG =! LEDG; wait();
+    LEDB =! LEDB; wait();
+    
+  }
+  void wait(void)
+  {
+   delay_ms(50);
   }

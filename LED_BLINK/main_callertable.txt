@@ -1,2 +1,4 @@
 main
+	wait
 	LED_An
+		wait

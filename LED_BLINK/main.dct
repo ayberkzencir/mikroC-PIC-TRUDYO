@@ -1969,6 +1969,7 @@ vregpm0_bit
 vregpm1
 vregpm1_bit
 w
+wait
 wcol
 wcol_bit
 wdtcon
