@@ -6,7 +6,7 @@ Value=0
 [BUILD_TYPE]
 Value=0
 [ACTIVE_TAB]
-Value=main.c
+Value=BUTTON_LED.c
 [USE_EEPROM]
 Value=0
 [USE_HEAP]
@@ -24,9 +24,8 @@ Count=0
 Count=0
 ActiveImageIndex=-1
 [OPENED_FILES]
-File0=main.c
-File1=..\..\..\..\..\..\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\P18F45K50.c
-Count=2
+File0=..\..\..\..\..\..\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\P18F45K50.c
+Count=1
 [EEPROM]
 Count=0
 [ACTIVE_COMMENTS_FILES]
@@ -47,9 +46,10 @@ Count=0
 VECTOR_MODE=0
 IVT_BASE=00000008
 [EXPANDED_NODES]
-Count=0
+0=main.mcppi
+Count=1
 [LIB_EXPANDED_NODES]
-Count=0
+Count=1
 [PROGRAMMER_TYPE]
 Value=mikroE mikroProg
 [CODEGRIP_OPTIONS]

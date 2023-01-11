@@ -2,6 +2,7 @@
 Name=P18F45K50
 Clock=48000000
 [FILES]
+File0=LED_BUTTON.c
 Count=1
 [BINARIES]
 Count=0
@@ -9,6 +10,7 @@ Count=0
 Count=0
 ActiveImageIndex=-1
 [OPENED_FILES]
+File0=LED_BUTTON.c
 Count=1
 [EEPROM]
 Count=0
@@ -31,7 +33,7 @@ Value=0
 [BUILD_TYPE]
 Value=0
 [ACTIVE_TAB]
-Value=BUTTON_LED.c
+Value=LED_BUTTON.c
 [USE_EEPROM]
 Value=0
 [USE_HEAP]

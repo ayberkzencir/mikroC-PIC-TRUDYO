@@ -255,6 +255,7 @@ btsee
 btsee_bit
 btsef
 btsef_bit
+button
 byte2double
 c
 c_bit
@@ -956,6 +957,9 @@ late1
 late1_bit
 late2
 late2_bit
+ledb
+ledg
+ledr
 lfiofs
 lfiofs_bit
 longint2double
@@ -969,6 +973,7 @@ lvdin
 lvdin_bit
 lvdip
 lvdip_bit
+main
 mc1out
 mc1out_bit
 mc2out
@@ -1963,6 +1968,7 @@ vregpm0_bit
 vregpm1
 vregpm1_bit
 w
+wait
 wcol
 wcol_bit
 wdtcon
