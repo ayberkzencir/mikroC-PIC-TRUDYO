@@ -1,41 +1,51 @@
 
-sbit LEDR at LATE0_bit ;        //18F sonrasýndaki iþlemcileri çýkýþ olarak kullancakasak iki türlükullanýmý var birincisi LAT fonksiyonu ikincisi direk Portun RA RB gbi ismini yazmak
-sbit LEDG at LATE1_bit ;
-sbit LEDB at LATE2_bit;         //LAT ile RB RA arasýndakji fark LAT bir registerdýr.LATE0 da bizim LATA yazmýþ olduðumuz deðerler daha sonra E0'a otomaik olarak yazýlýr.
+sbit LEDR at LATE0_bit;
+sbit LEDB at LATE1_bit;
+sbit LEDG at LATE2_bit;   //18F serisinden sonra çýkan picler için iki tür kullanýmý vardýr birincisi LAT diðeri ise RB direk bit ismi yazarak LAT bitlerini full kodlama yapoabilir ama diðeri direk bitt kodlamasý yaoar
+                                     //LAT aslýnda bir registerdýr zaten burada göstermek için belirttik  yani bizim LAT  ayazdýðýmýz deðerler sonrasýnda otomatik olarak RE lere yazýlýr
 
-sbit button at RA0_bit;
+sbit button  at RB0_bit;
 
- //  ADC lerin çalýþmasýný saðlayan register kodlamasý yapmamýz gerekmektedir.
-void wait();
+void ButtonState();
+void Wait();
 
-void main() 
+void main()
 {
-   TRISA  =0xFF;         //RA 0 giriþ olarak verdýk
-   TRISE =0x00;
-   
-   LATA= 0x00;
-   LATE=0x00;
-   
-   ADCON1 = 0xFF; //burada analog bir deðeri digital olarak kullanacaðýz bu yüzden ADCON kontrol registerýmýzýn bütün bitlerini 1 yaptýk
-   
-   
-   while(1)
-   {
-     if(button) {
-      LEDR= 1; LEDG = 1; LEDB =1; //burada butona her bastýgýmýda E portunda 1 birim kayacak yani diðer ledleri de yakacak
-       wait();
-       }
-    else  if(!button){
-     LEDR = 0; LEDG = 0; LEDB = 0; // E portunun pinlerini 1 birim sola kaydýr
-        wait();
-                 }
-     
-     
-   }
-   
+      TRISE = 0x00;
+      TRISB = 0x01; //0b00000001 RB0 a giriþ verdik
+
+      LATE = 0x00;
+      LATB =0x00;
+      
+      ADCON0 = 0xFF ; //ADCON registerýmýzý aktif ettik analog sensörleri kullanýrken bu registerýmýzý aktif etmemiz gerekmektedir.   RB0 0 pinimizin A12 analog 12 bitini aktif etmek gerekiyor ama biz tüm ADCON bitlerini aktif ettik
+             //0Xff yaparak hepsini digital olarak kullanacaðýmýzý belirttik
+      
+      while(1)
+      {
+         ButtonState();
+            }
+      
+      
 }
-
-void wait()
+void ButtonState()
 {
- delay_ms(20);
+      switch(button)
+        {
+        case 1:
+         LEDR =!LEDR;
+         Wait();
+         LEDB = !LEDB;
+         Wait();
+         LEDG = !LEDG;
+         Wait();
+        case 0:
+         LEDR = 0;
+         LEDB = 0;
+         LEDG = 0;
+
+      }
+}
+void Wait()
+{
+ delay_ms(500);
 }

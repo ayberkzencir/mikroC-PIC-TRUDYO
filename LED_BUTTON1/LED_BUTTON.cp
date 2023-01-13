@@ -1,42 +1,52 @@
 #line 1 "C:/Users/agart/OneDrive/Belgeler/GitHub/mikroC-PIC-TRUDYO/LED_BUTTON1/LED_BUTTON.c"
 
-sbit LEDR at LATE0_bit ;
-sbit LEDG at LATE1_bit ;
-sbit LEDB at LATE2_bit;
-
-sbit button at RA0_bit;
+sbit LEDR at LATE0_bit;
+sbit LEDB at LATE1_bit;
+sbit LEDG at LATE2_bit;
 
 
-void wait();
+sbit button at RB0_bit;
+
+void ButtonState();
+void Wait();
 
 void main()
 {
- TRISA =0xFF;
- TRISE =0x00;
+ TRISE = 0x00;
+ TRISB = 0x01;
 
- LATA= 0x00;
- LATE=0x00;
+ LATE = 0x00;
+ LATB =0x00;
 
- ADCON1 = 0xFF;
+ ADCON0 = 0xFF ;
 
 
  while(1)
  {
- if(button) {
- LEDR= 1; LEDG = 1; LEDB =1;
- wait();
- }
- else if(!button){
- LEDR = 0; LEDG = 0; LEDB = 0;
- wait();
+ ButtonState();
  }
 
-
- }
 
 }
-
-void wait()
+void ButtonState()
 {
- delay_ms(20);
+ switch(button)
+ {
+ case 1:
+ LEDR =!LEDR;
+ Wait();
+ LEDB = !LEDB;
+ Wait();
+ LEDG = !LEDG;
+ Wait();
+ case 0:
+ LEDR = 0;
+ LEDB = 0;
+ LEDG = 0;
+
+ }
+}
+void Wait()
+{
+ delay_ms(500);
 }

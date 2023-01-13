@@ -256,6 +256,7 @@ btsee_bit
 btsef
 btsef_bit
 button
+buttonstate
 byte2double
 c
 c_bit
