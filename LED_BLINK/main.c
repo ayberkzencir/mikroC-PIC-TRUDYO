@@ -13,7 +13,7 @@ void main()
 {
     TRISA = 0b00000000;   //Bu kýsým denetleyici üzerindeki LED leri çalýþtýrmak içindir
     TRISE  =0x00; // buradada hepsini çýkýþ veridk
-    
+
 
     LATA = 0x00;
     LATE = 0x00;

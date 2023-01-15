@@ -6,8 +6,7 @@ sbit LEDG at LATE2_bit;   //18F serisinden sonra çýkan picler için iki tür kulla
 
 sbit button  at RB0_bit;
 
-void ButtonState();
-void Wait();
+
 
 void main()
 {
@@ -17,35 +16,16 @@ void main()
       LATE = 0x00;
       LATB =0x00;
       
-      ADCON0 = 0xFF ; //ADCON registerýmýzý aktif ettik analog sensörleri kullanýrken bu registerýmýzý aktif etmemiz gerekmektedir.   RB0 0 pinimizin A12 analog 12 bitini aktif etmek gerekiyor ama biz tüm ADCON bitlerini aktif ettik
+      ADCON1 = 0xFF ; //ADCON registerýmýzý aktif ettik analog sensörleri kullanýrken bu registerýmýzý aktif etmemiz gerekmektedir.   RB0 0 pinimizin A12 analog 12 bitini aktif etmek gerekiyor ama biz tüm ADCON bitlerini aktif ettik
              //0Xff yaparak hepsini digital olarak kullanacaðýmýzý belirttik
       
       while(1)
       {
-         ButtonState();
+        if(button == 1)
+           LEDR = 1;
+        else
+            LEDR = 0;
             }
       
       
-}
-void ButtonState()
-{
-      switch(button)
-        {
-        case 1:
-         LEDR =!LEDR;
-         Wait();
-         LEDB = !LEDB;
-         Wait();
-         LEDG = !LEDG;
-         Wait();
-        case 0:
-         LEDR = 0;
-         LEDB = 0;
-         LEDG = 0;
-
-      }
-}
-void Wait()
-{
- delay_ms(500);
 }

@@ -7,8 +7,7 @@ sbit LEDG at LATE2_bit;
 
 sbit button at RB0_bit;
 
-void ButtonState();
-void Wait();
+
 
 void main()
 {
@@ -18,35 +17,16 @@ void main()
  LATE = 0x00;
  LATB =0x00;
 
- ADCON0 = 0xFF ;
+ ADCON1 = 0xFF ;
 
 
  while(1)
  {
- ButtonState();
- }
-
-
-}
-void ButtonState()
-{
- switch(button)
- {
- case 1:
- LEDR =!LEDR;
- Wait();
- LEDB = !LEDB;
- Wait();
- LEDG = !LEDG;
- Wait();
- case 0:
+ if(button == 1)
+ LEDR = 1;
+ else
  LEDR = 0;
- LEDB = 0;
- LEDG = 0;
-
  }
-}
-void Wait()
-{
- delay_ms(500);
+
+
 }
